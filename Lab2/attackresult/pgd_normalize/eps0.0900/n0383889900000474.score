@@ -1,0 +1,10 @@
+8
+-1.867 -3.625 -1.132 0.848 -2.263 -0.839 0.904 -1.662 6.065 -0.789 -1.256 1.930 2.734 -0.909 -0.647 0.572 0.450 1.137 1.522 -0.348 
+psnr: 24.458 ssim: 0.831 torch_ssim: 0.565 mse: 232.941  attackLen: 0
+batch_size: 64
+method: pgd-normalized
+target_model: F:\Project\AttackMethod\result\mini-imagenet20\models\resnetnet34_adv\resnet34_3.std
+num_iter: 10
+step_size: 0.01
+epsilon: 0.09
+time_cost: 0.93
