@@ -1,0 +1,33 @@
+bs4进行数据解析
+    -数据解析的原理：
+        -1.标签定位
+        -2.提取标签、标签属性中存储的数据值
+    -bs4数据解析的原理：
+        -1.实例化一个beautifulSoup对象，并且将页面源码数据加载到对象中
+        -2调用BeautifulSoup对象中的属性或者方法进行标签定位和数据提取
+    -如何实例化BeauitifulSoup对象:
+        -from bs4 import BeautifulSoup
+        -实例化：
+            -将本地的html文档中的数据加载到该对象中
+                with open('response.html', 'r') as fp :
+                soup = BeautifulSoup(fp, 'lxml')
+            -将互联网上获取的页面源码加载到该对象中
+                page_text = response.text
+                soup = BeautifulSoup(page_text, 'lxml')
+        -提供用于数据解析的方法和属性：
+            -soup.find(tagName)、soup.tagName返回的是html第一次出现的tagName标签
+            -soup.find()：
+                -soup.find(tagName)相当于soup.tagName
+                -属性定位，soup.find('div', class_/id/attr = 'sub-links')
+            -soup.find_all('tagName')返回符合要求的所有标签(列表)
+        -select：
+            -soup.select('某种选择器(id, class,标签...选择器)')，返回一个列表，类标签前面有“.”
+            -soup.select(".main > .article-list > .article-summary > .article-title > a")[0]等效于
+            soup.select(".main > .article-list a")[0]，“>”表示一级，“ ”表示多级
+        -获取标签之间的文本数据
+            -soup.a.text/string/get_text
+            -区别：
+                -text/get_text()可以获得一个标签中所有的文本数据
+                -string:只可以获取该标签下的直系内容
+        -获取标签中的属性值：
+            -soup.a.['hrel']
